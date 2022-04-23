@@ -23,20 +23,20 @@ module.exports = {
                 ]
             },
             {
-                test: /\.css$/,
+                test: /\.css$/, // .css로 끝나는 파일들은 아래의 로더들을 거친다.
                 use: [
                     'style-loader',
                     'css-loader'
                 ]
             },
-            // {
-            //     test: /\.png$/,
-            //     loader: 'file-loader',
-            //     options: {
-            //         publicPath: './dist/',
-            //         name: '[name].[ext]?[hash]'
-            //     },
-            // }
+            {
+                test: /\.png$/,
+                loader: 'file-loader',
+                options: {
+                    publicPath: './dist',
+                    name: '[name].[ext]?[hash]'
+                },
+            }
         ]
     }
 }
