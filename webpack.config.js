@@ -1,4 +1,5 @@
 const path = require('path')
+const MyWebpackPlugin = require('./my-webpack-plugin')
 
 module.exports = {
     mode: 'development', // 웹팩 실행 모드
@@ -38,5 +39,14 @@ module.exports = {
                 },
             }
         ]
-    }
+    },
+
+    /**
+     * 번들괸 결과에 후처리를 하는 것이 플러그인의 역할이다.
+     * 번들된 결과물 하나를 처리한다. 플러그인을 직접 만들어서 사용하는 경우는 거의 없다.
+     * 번들된 자바스크립트를 난독화 한다거나 특정 텍스트를 추출하는 용도로 사용한다.
+     */
+    plugins: [
+        new MyWebpackPlugin(),
+    ]
 }
